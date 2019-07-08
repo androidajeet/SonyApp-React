@@ -1,0 +1,62 @@
+#wrapper {
+    margin-right: 20px;
+    text-align: right;
+    /* border: 1px solid blue; */
+    width: 500px;
+    float:right ;
+    margin-top: 70px;
+}
+#div1 {
+    color: gray;
+    display: inline-block;
+   padding-right: 20px;
+    /* border: 1px solid red; */
+}
+#div2 {
+    display: inline-block;
+    /* border: 1px solid green; */
+}
+
+a{
+  color: gray;
+  text-decoration: underline;
+}
+a:hover{
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+.section {
+    background-color: blueviolet;
+    float: left;
+   
+  }
+.aside {
+    background-color: black;
+    float: right;
+   width: 200px;
+   display: inline-block;
+  }
+
+  .LocationImage{
+  width: 40px;
+  height: 40px;
+  }
+  /* .aside p {
+    display: inline-block;
+  }
+
+  .aside img {
+    display: inline-block;
+  } */
+
+  /* .Location{
+    display: inline-block;
+  } */

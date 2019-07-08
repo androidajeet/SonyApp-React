@@ -1,0 +1,14 @@
+.Toolbar {
+    width: 100%;
+    height: 70px;
+    background-color: black;
+    float: left;
+}
+
+.Logo {
+    margin: 0;
+    position: absolute;
+    margin-left: 40px;
+    margin-top: 17px;
+    width: 150px;
+}
