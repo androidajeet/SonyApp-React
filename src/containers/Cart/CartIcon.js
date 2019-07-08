@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import './Cart.css';
 import { connect } from "react-redux";
-import { setName } from "../../../actions/userActions";
-import { addNumber } from "../../../actions/cartActions";
+import { setName } from "../../actions/userActions";
+import { addNumber } from "../../actions/cartActions";
 
 class Cart extends Component {
     render() {
@@ -13,7 +13,7 @@ class Cart extends Component {
         };
         return (
             <div className="CartStyle" >
-                <span  style={stylesBadge} class='badge badge-warning' id='lblCartCount'>{this.props.cart.cartSize}</span>
+                <span  style={stylesBadge} className='badge badge-warning' id='lblCartCount'>{this.props.cart.cartSize}</span>
                 <li ><Link to="/cart"><i className="fa fa-shopping-cart fa-lg"></i></Link></li>
             </div>
         );

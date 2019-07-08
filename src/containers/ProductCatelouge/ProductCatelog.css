@@ -21,3 +21,9 @@
     color: white;
     border: 1px solid #4CAF50;
   }
+
+  .ProductCatelogControls{
+    position: relative;
+    border-color: 1px solid #4CAF50;
+    
+  }
