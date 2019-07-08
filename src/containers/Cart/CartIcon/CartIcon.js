@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import './Cart.css';
 import { connect } from "react-redux";
-import { setName } from "../../actions/userActions";
-import { addNumber } from "../../actions/cartActions";
+import { setName } from "../../../actions/userActions";
+import { addNumber } from "../../../actions/cartActions";
 
 class Cart extends Component {
     render() {

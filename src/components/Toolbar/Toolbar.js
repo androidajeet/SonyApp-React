@@ -9,7 +9,6 @@ const toolbar = () => {
     return (
         <Aux>
             < div className="Toolbar" >
-
                 <Link to="/">
                     <img className="Logo" src={logo} alt="sony logo"></img>
                 </Link>
