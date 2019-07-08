@@ -17,39 +17,45 @@ class cart extends Component {
         }
 
         return (
-            <div >
-                <div className="container mb-4">
-                    <div className="row">
-                        <div className="col-12">
-                            <div className="table-responsive">
-                                <table className="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col"> </th>
-                                            <th scope="col">Product</th>
-                                            <th scope="col" className="text-center">Quantity</th>
-                                            <th scope="col" className="text-right">Price</th>
-                                            <th> </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {cartItems}
-                                    </tbody>
-                                </table>
+            <div>
+                {cartItems.length > 0 ?
+                    <div>
+                        <div className="container mb-4">
+                            <div className="row">
+                                <div className="col-12">
+                                    <div className="table-responsive">
+                                        <table className="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col"> </th>
+                                                    <th scope="col">Product</th>
+                                                    <th scope="col" className="text-center">Quantity</th>
+                                                    <th scope="col" className="text-right">Price</th>
+                                                    <th> </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {cartItems}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col mb-2">
+                            <div className="row">
+                                <div className="col-sm-12  col-md-6">
+                                    <Link to="/">  <button className="btn btn-block btn-light">Continue Shopping</button></Link>
+                                </div>
+                                <div className="col-sm-12 col-md-6 text-right">
+                                    <button className="btn btn-lg btn-block btn-dark text-uppercase" onClick={() => this.props.resetCart(0)} >Checkout</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="col mb-2">
-                    <div className="row">
-                        <div className="col-sm-12  col-md-6">
-                            <Link to="/">  <button className="btn btn-block btn-light">Continue Shopping</button></Link>
-                        </div>
-                        <div className="col-sm-12 col-md-6 text-right">
-                            <button className="btn btn-lg btn-block btn-dark text-uppercase" onClick={() => this.props.resetCart(0)} >Checkout</button>
-                        </div>
-                    </div>
-                </div>
+                    :
+                    <p className="NoItem"> Cart is empty :( </p>
+                }
             </div>
         );
     };

@@ -30,7 +30,6 @@ const cartReducer = (state = initialState, action) => {
 
                 lastValues: [...state.lastValues, action.payload],
 
-              
 
             };
 
