@@ -39,7 +39,7 @@ class product extends Component {
                     <div className="card-body"></div>
                     <h5 className="card-title">{this.props.productName.substring(0, 25) + "..."}</h5>
                     <Link to="/details" style={stylesButton} className="btn btn-primary">View details</Link>
-                    <button style={stylesButtonAddtocart} className="btn btn-primary" onClick={() => this.props.setCart(1)}>Add To Cart</button>
+                    <button style={stylesButtonAddtocart} className="btn btn-primary" onClick={() => this.props.setCart(1, this.props.productName)}>Add To Cart</button>
                 </div>
             </div>
         );
@@ -102,8 +102,8 @@ const mapDispatchToProps = (dispatch) => {
         setName: (name) => {
             dispatch(setName(name));
         },
-        setCart: (value) => {
-            dispatch(addNumber(value));
+        setCart: (value, pName) => {
+            dispatch(addNumber(value, pName));
         },
     };
 };

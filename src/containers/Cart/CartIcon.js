@@ -6,18 +6,29 @@ import { setName } from "../../actions/userActions";
 import { addNumber } from "../../actions/cartActions";
 
 class Cart extends Component {
+
     render() {
+
         var stylesBadge = {
             background: "white",
-            color:"black"
+            color: "black"
         };
         return (
             <div className="CartStyle" >
-                <span  style={stylesBadge} className='badge badge-warning' id='lblCartCount'>{this.props.cart.cartSize}</span>
+                <span style={stylesBadge} className='badge badge-warning' id='lblCartCount'>{this.props.cart.cartSize}</span>
                 <li ><Link to="/cart"><i className="fa fa-shopping-cart fa-lg"></i></Link></li>
             </div>
         );
     }
+
+
+
+
+    // componentDidMount() {
+
+    //     localStorage.setItem("cartSize", 0);
+    //     localStorage.setItem("carts", []);
+    // }
 }
 
 

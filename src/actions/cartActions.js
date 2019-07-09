@@ -1,8 +1,10 @@
-export function addNumber(number) {
+export function addNumber(number, pName) {
 
     return {
         type: "ADD",
-        payload: number
+        payload: number,
+        productName: pName
+
 
     };
 
@@ -10,17 +12,18 @@ export function addNumber(number) {
 
 
 
-export function subtractNumber(number) {
+export function subtractNumber(number, pName) {
 
     return {
         type: "SUBTRACT",
-        payload: number
+        payload: number,
+        productName: pName
 
     };
 
 }
 
-export function clearCart(number){
+export function clearCart(number) {
     return {
         type: "RESET",
         payload: number

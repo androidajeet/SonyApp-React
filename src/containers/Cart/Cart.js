@@ -9,12 +9,28 @@ import CartItem from './CartItem/CartItem';
 class cart extends Component {
 
 
+    // componentDidMount() {
+
+    //     localStorage.setItem("cartSize", 0);
+    //     localStorage.setItem("carts", []);
+    // }
+
+
+
     render() {
-        console.log(this.props.cart.cartSize)
+        console.log(this.props.cart.cartSize);
+
         const cartItems = [];
-        for (var i = 0; i < this.props.cart.cartSize; i++) {
-            cartItems.push(<CartItem key={i}> </CartItem>);
+
+        if (this.props.cart.carts.length > 0) {
+
+            for (var i = 0; i < this.props.cart.carts.length; i++) {
+                cartItems.push(<CartItem key={i} productName={this.props.cart.carts[i].productName} qty={this.props.cart.carts[i].quantity}> </CartItem>);
+            }
+        } else {
+            localStorage.setItem("cartSize", 0);
         }
+
 
         return (
             <div>
@@ -54,10 +70,12 @@ class cart extends Component {
                         </div>
                     </div>
                     :
-                    <p className="NoItem"> Cart is empty :( </p>
+                    <p className="NoItem"> Cart is empty :(  </p>
+
                 }
             </div>
         );
+
     };
 }
 
@@ -77,8 +95,8 @@ const mapDispatchToProps = (dispatch) => {
         setName: (name) => {
             dispatch(setName(name));
         },
-        setCart: (value) => {
-            dispatch(addNumber(value));
+        setCart: (value, pName) => {
+            dispatch(addNumber(value, pName));
         },
         resetCart: (value) => {
             dispatch(clearCart(value));
@@ -88,5 +106,3 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(cart);
 
-
-//<p onClick={() => this.props.setCart(1)}>Hi, this is cart</p>
