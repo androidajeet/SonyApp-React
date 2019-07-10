@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../common/css/Common.css';
 import './ProductDetails.css';
-import productImage from '../../assets/product.jpg';
+//import productImage from '../../assets/product.jpg';
 import { connect } from "react-redux";
 import { setName } from "../../actions/userActions";
 import { addNumber } from "../../actions/cartActions";
