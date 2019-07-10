@@ -20,7 +20,6 @@ const quickLink = (props) => {
                                 <li><a href="#quick_links"><i ></i>Join Now</a></li>
                                 <li><a href="#quick_links"><i ></i>Learn More</a></li>
                                 <li><a href="#quick_links"><i ></i>Manage Account</a></li>
-
                             </ul>
                         </div>
                         <div className="col-3">
@@ -33,12 +32,11 @@ const quickLink = (props) => {
                                 <li><a href="#quick_links"><i ></i>Electronics Registration</a></li>
                                 <li><a href="#quick_links"><i ></i>Electronics Newsletter</a></li>
                                 <li><a href="#quick_links"><i ></i>Accessibility and Usability</a></li>
-
                             </ul>
                         </div>
                         <div className="col-3">
                             <h5> Other Sites</h5>
-                            <ul  className="list-unstyled quick-links">
+                            <ul className="list-unstyled quick-links">
                                 <li><a href="#quick_links"><i ></i>Professional Products and Solutions</a></li>
                                 <li><a href="#quick_links"><i ></i>PlayStation</a></li>
                                 <li><a href="#quick_links"><i ></i>Sony Pictures</a></li>
@@ -48,7 +46,6 @@ const quickLink = (props) => {
                                 <li><a href="#quick_links"><i ></i>Sony Square NYC</a></li>
                                 <li><a href="https://www.google.com" title="Design and developed by"><i></i>Imprint</a></li>
                             </ul>
-
                         </div>
                     </div>
                     <div className="row">
@@ -60,24 +57,12 @@ const quickLink = (props) => {
                                 <li className="list-inline-item"><a href="quick_links"><i className="fa fa-google-plus"></i></a></li>
                                 <li className="list-inline-item"><a href="quick_links" target="_blank"><i className="fa fa-envelope"></i></a>
                                 </li>
-
-
                             </ul>
-
-
                         </div>
-
                     </div>
-
-
-
                 </div>
             </section>
-
-
-
         </div>
-
     );
 
 };

@@ -35,7 +35,7 @@ class product extends Component {
         return (
             <div style={stylescard} className="col">
                 <div style={styles} className="card">
-                    <img src={productImage} alt="ProductImage"></img>
+                    <img className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" src={productImage} alt="ProductImage"></img>
                     <div className="card-body"></div>
                     <h5 className="card-title">{this.props.productName.substring(0, 25) + "..."}</h5>
                     <Link to="/details" style={stylesButton} className="btn btn-primary">View details</Link>
