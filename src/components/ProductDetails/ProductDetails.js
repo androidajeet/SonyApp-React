@@ -36,7 +36,7 @@ class productDtails extends Component {
                     <h1 className="my-4">{this.props.location.productprops.name} </h1>
                     <div className="row">
                         <div className="col-md-8">
-                            <img className="img-fluid" style={styles} src={productImage} alt=""></img></div>
+                            <img className="img-fluid" style={styles} src="assets/product.jpg" alt=""></img></div>
                         <div className="col-md-4">
                             <h3 className="my-3">Product Features</h3>
                             <p>{JSON.stringify(this.props.location.productprops.specifications)}</p>
