@@ -12,20 +12,18 @@ class ProductList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentPageNumber : props.currentPageNumber,
-            itemsPerPage : props.itemsPerPage
+            currentPageNumber: props.currentPageNumber,
+            itemsPerPage: props.itemsPerPage
         }
-      
+
     }
-  
-  
-    handleClick = (id)=>{
+
+
+    handleClick = (id) => {
         this.props.addToCart(id);
-        }
+    }
 
     render() {
-    
-
         var styles = {
             marginBottom: "10px",
         };
@@ -34,9 +32,9 @@ class ProductList extends Component {
             return (
                 <div style={styles} className="container-fluid">
                     <div className="row">
-                        {((this.props.allProductList).slice(((this.props.currentPageNumber-1)*this.props.itemsPerPage),((this.props.itemsPerPage)*this.props.currentPageNumber))).map((product, index) => {
+                        {((this.props.allProductList).slice(((this.props.currentPageNumber - 1) * this.props.itemsPerPage), ((this.props.itemsPerPage) * this.props.currentPageNumber))).map((product, index) => {
                             return (
-                                <Product key={product.name} productName={product.name} changeUsername={() => this.props.setName("Anna")} />
+                                <Product key={product.name} productName={product.name} product={product} changeUsername={() => this.props.setName("Anna")} />
                             );
                         })}
                     </div>
@@ -48,7 +46,7 @@ class ProductList extends Component {
                 <div style={styles} className="container-fluid">
                     <div className="row">
                         {arrayExpired.map((product, index) => {
-                            return (<Product key={product.name} productName={product.name}  changeCart={() => this.props.addNumber(1)}/>);
+                            return (<Product key={product.name} productName={product.name} product={product} changeCart={() => this.props.addNumber(1)} />);
                         })}
                     </div>
                 </div>
@@ -58,7 +56,7 @@ class ProductList extends Component {
             if (arrayExpiringSoon.length > 0) {
                 return arrayExpiringSoon.map((product, index) => {
                     return (
-                        <Product key={product.name} productName={product.name}  changeCart={() => this.props.addNumber(1)}/>
+                        <Product key={product.name} productName={product.name} product={product} changeCart={() => this.props.addNumber(1)} />
                     );
                 });
             } else {
@@ -73,8 +71,8 @@ class ProductList extends Component {
 
 
 
-  
-  
- 
+
+
+
 
 export default ProductList;

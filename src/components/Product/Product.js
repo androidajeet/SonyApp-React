@@ -38,7 +38,7 @@ class product extends Component {
                     <img className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" src={productImage} alt="ProductImage"></img>
                     <div className="card-body"></div>
                     <h5 className="card-title">{this.props.productName.substring(0, 25) + "..."}</h5>
-                    <Link to="/details" style={stylesButton} className="btn btn-primary">View details</Link>
+                    <Link to={{ pathname: '/details', productprops: this.props.product }} style={stylesButton} className="btn btn-primary">View details</Link>
                     <button style={stylesButtonAddtocart} className="btn btn-primary" onClick={() => this.props.setCart(1, this.props.productName)}>Add To Cart</button>
                 </div>
             </div>
@@ -108,3 +108,8 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(product);
+
+
+
+//{ pathname: '/route', state: { foo: 'bar'} }
+//<Link to="/details" style={stylesButton} className="btn btn-primary">View details</Link>
