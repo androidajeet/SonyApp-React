@@ -68,7 +68,7 @@ class ProductCatalog extends Component {
             float: 'right',
             marginRight: "10px",
         };
-
+        //this is test comment
         return (
             <div>
                 <Paginator
