@@ -1,5 +1,5 @@
 const initialState = {
-    currentPage: 1,
+    currentPage: 1
 };
 
 const paginationReducer = (state = initialState, action) => {
