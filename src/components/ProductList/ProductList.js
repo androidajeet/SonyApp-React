@@ -12,7 +12,6 @@ class ProductList extends Component {
             currentPageNumber: props.currentPageNumber,
             itemsPerPage: props.itemsPerPage
         }
-
     }
 
 
