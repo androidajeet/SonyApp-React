@@ -3,6 +3,8 @@ import ProductList from '../../components/ProductList/ProductList';
 import Paginator from '../../components/Pagination/Pagination';
 import axios from '../../axios';
 import { connect } from "react-redux";
+import { addAllProduct } from "../../actions/cartActions";
+
 
 class ProductCatalog extends Component {
     //this is test commit in development
@@ -12,7 +14,7 @@ class ProductCatalog extends Component {
             filter: "all",
             currentPageNumber: 1,
             itemsPerPage: 6,
-            allProductList: []
+            // allProductList: []
         };
         //bind function in constructor instead of render (https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
         //this.onChangePage = this.onChangePage.bind(this);
@@ -24,15 +26,18 @@ class ProductCatalog extends Component {
         axios
             .then(response => {
                 let products = this.getAllProduct(response.data);
-                this.setState(
-                    {
-                        allProductList: products
-                    });
+                this.props.setAllProduct(products)
+                // this.setState(
+                //     {
+                //         allProductList: products
+                //     });
             })
             .catch(err => {
                 console.log(err);
             });
     }
+
+
     getAllProduct(json, products = []) {
         if (json.hasOwnProperty("children")) {
             json.children.forEach(element => {
@@ -72,7 +77,7 @@ class ProductCatalog extends Component {
         return (
             <div>
                 <Paginator
-                    allProductList={this.state.allProductList}
+                    allProductList={this.props.cart.allProducts}
                     currentPageNumber={this.props.pagination.currentPage}
                     itemsPerPage={this.state.itemsPerPage} />
 
@@ -85,7 +90,7 @@ class ProductCatalog extends Component {
                 <ProductList
                     itemsPerPage={this.state.itemsPerPage}
                     currentPageNumber={this.props.pagination.currentPage}
-                    allProductList={this.state.allProductList}
+                    allProductList={this.props.cart.allProducts}
                     productFilter={this.state.filter} />
             </div>
         );
@@ -101,4 +106,14 @@ const mapStateToProps = (state) => {
         pagination: state.pagination
     };
 };
-export default connect(mapStateToProps, null)(ProductCatalog);
+
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setAllProduct: (arrayOfProduct) => {
+            dispatch(addAllProduct(arrayOfProduct));
+        }
+
+    };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(ProductCatalog);

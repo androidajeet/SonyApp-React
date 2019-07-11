@@ -36,7 +36,7 @@ class cart extends Component {
             <div>
                 {cartItems.length > 0 ?
                     <div>
-                        <div className="container mb-4">
+                        <div id="cart" className="container mb-4">
                             <div className="row">
                                 <div className="col-12">
                                     <div className="table-responsive">

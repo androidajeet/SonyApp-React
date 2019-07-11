@@ -30,3 +30,11 @@ export function clearCart(number) {
 
     };
 }
+
+export function addAllProduct(arrayOfProducts) {
+    return {
+        type: "ADD_ALL_PRODUCT",
+        payload: arrayOfProducts
+
+    };
+}

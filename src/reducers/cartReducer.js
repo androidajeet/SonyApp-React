@@ -4,7 +4,8 @@ const initialState = {
     cartSize: initcart,
     // result: 1,
     //lastValues: [],
-    carts: initCarts
+    carts: initCarts,
+    allProducts: []
 };
 const cartReducer = (state = initialState, action) => {
     let updatedCart;
@@ -119,11 +120,11 @@ const cartReducer = (state = initialState, action) => {
 
 
 
-        case "ADD_PRODUCT_TO_CART":
-
-
-
-
+        case "ADD_ALL_PRODUCT":
+            state = {
+                ...state,
+                allProducts: action.payload
+            };
             break;
 
         default:
