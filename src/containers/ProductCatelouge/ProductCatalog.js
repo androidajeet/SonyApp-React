@@ -15,7 +15,7 @@ class ProductCatalog extends Component {
             allProductList: []
         };
         //bind function in constructor instead of render (https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
-        // this.onChangePage = this.onChangePage.bind(this);
+        //   this.onChangePage = this.onChangePage.bind(this);
     }
     componentWillMount() {
         this.readData();
@@ -45,22 +45,22 @@ class ProductCatalog extends Component {
     }
 
 
-    onChangePage(event) {
-        //update state with new page of items
-        // console.log(this);
-        // console.log(event.target.innerHTML);
-        this.setState(
-            { currentPageNumber: parseInt(event.target.innerHTML) }
-        );
-    }
-
-
-    // filterHandler = (event) => {
-    //     let updatedFilter = event.target.value;
+    // onChangePage(event) {
+    //     //update state with new page of items
+    //     // console.log(this);
+    //     // console.log(event.target.innerHTML);
     //     this.setState(
-    //         { filter: updatedFilter }
+    //         { currentPageNumber: parseInt(event.target.innerHTML) }
     //     );
     // }
+
+
+    filterHandler = (event) => {
+        let updatedFilter = event.target.value;
+        this.setState(
+            { filter: updatedFilter }
+        );
+    }
 
 
     render() {
@@ -73,8 +73,7 @@ class ProductCatalog extends Component {
             <div>
                 <Paginator
                     allProductList={this.state.allProductList}
-
-                    currentPageNumber={this.state.currentPageNumber}
+                    currentPageNumber={this.props.pagination.currentPage}
                     itemsPerPage={this.state.itemsPerPage} />
 
                 <select style={styles} value={this.state.filter} onChange={this.filterHandler} >
