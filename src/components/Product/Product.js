@@ -29,9 +29,8 @@ class product extends Component {
             background: "black",
             border: "none",
             outline: "none"
-
-
         };
+
         return (
             <div style={stylescard} className="col">
                 <div style={styles} className="card">
@@ -46,6 +45,8 @@ class product extends Component {
     };
 
 }
+
+
 // const product = (props) => {
 //     var styles = {
 //         width: "17rem",

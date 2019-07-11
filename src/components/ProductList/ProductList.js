@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import Product from '../../components/Product/Product';
 import { getExpiredProducts, getExpiringSoonProducts } from '../../helper/productHelper';
 import './ProductList.css';
-// import { addNumber } from "../../actions/cartActions";
-// import { setName } from "../../actions/userActions";
 
-// import {connect} from "react-redux";
 
 class ProductList extends Component {
 
@@ -24,6 +21,8 @@ class ProductList extends Component {
     }
 
     render() {
+
+        console.log(this.props.productFilter);
         var styles = {
             marginBottom: "10px",
         };
@@ -32,38 +31,76 @@ class ProductList extends Component {
             return (
                 <div style={styles} className="container-fluid">
                     <div className="row">
-                        {((this.props.allProductList).slice(((this.props.currentPageNumber - 1) * this.props.itemsPerPage), ((this.props.itemsPerPage) * this.props.currentPageNumber))).map((product, index) => {
-                            return (
-                                <Product key={product.name} productName={product.name} product={product} changeUsername={() => this.props.setName("Anna")} />
-                            );
-                        })}
+                        {
+
+                            ((this.props.allProductList).slice(((this.props.currentPageNumber - 1) * this.props.itemsPerPage), ((this.props.itemsPerPage) * this.props.currentPageNumber))).map((product, index) => {
+                                return (
+                                    <Product key={product.name} productName={product.name} product={product} changeUsername={() => this.props.setName("Anna")} changeCart={() => this.props.addNumber(1)} />
+                                );
+                            })
+
+                        }
                     </div>
                 </div>
             );
-        } else if (this.props.productFilter === "expiring_soon") {
+        } else if (this.props.productFilter === "expired") {
             let arrayExpired = getExpiredProducts(this.props.allProductList);
             return (
                 <div style={styles} className="container-fluid">
                     <div className="row">
-                        {arrayExpired.map((product, index) => {
-                            return (<Product key={product.name} productName={product.name} product={product} changeCart={() => this.props.addNumber(1)} />);
-                        })}
+                        {
+                            arrayExpired.length > 0 ?
+                                arrayExpired.map((product, index) => {
+                                    return (<Product key={product.name} productName={product.name} product={product} changeCart={() => this.props.addNumber(1)} />);
+                                })
+                                :
+                                <div className="NoItem"><p>There is no such item</p></div>
+                        }
                     </div>
                 </div>
             );
-        } else {
+
+        }
+
+        // else if (this.props.productFilter === "expiring_soon") {
+        //     var arrayExpiringSoon = getExpiringSoonProducts(this.props.allProductList);
+        //     if (arrayExpiringSoon.length > 0) {
+        //         return arrayExpiringSoon.map((product, index) => {
+        //             return (
+        //                 <Product key={product.name} productName={product.name} product={product} changeCart={() => this.props.addNumber(1)} />
+        //             );
+        //         });
+        //     } else {
+        //         return (
+        //             <div className="NoItem"><p>There is no such item</p></div>
+        //         );
+        //     }
+        // } 
+
+        else if (this.props.productFilter === "expiring_soon") {
+
             var arrayExpiringSoon = getExpiringSoonProducts(this.props.allProductList);
-            if (arrayExpiringSoon.length > 0) {
-                return arrayExpiringSoon.map((product, index) => {
-                    return (
-                        <Product key={product.name} productName={product.name} product={product} changeCart={() => this.props.addNumber(1)} />
-                    );
-                });
-            } else {
-                return (
-                    <div className="NoItem"><p>There is no such item</p></div>
-                );
-            }
+            console.log(arrayExpiringSoon);
+            return (
+
+                <div style={styles} className="container-fluid">
+                    <div className="row">
+                        {
+                            arrayExpiringSoon.length > 0 ? arrayExpiringSoon.map((product, index) => {
+                                return (<Product key={product.name} productName={product.name} product={product} changeCart={() => this.props.addNumber(1)} />);
+                            })
+                                :
+                                <div className="NoItem"><p>There is no such item</p></div>
+                        }
+                    </div>
+                </div>
+
+            );
+        }
+        else {
+            return (
+                <div className="NoItem"><p>Something went wrong...</p></div>
+            );
         }
     }
 }

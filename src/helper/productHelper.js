@@ -11,18 +11,18 @@ export const getAllProduct = (json, products = []) => {
 
 export const getExpiredProducts = (allProducts) => {
 
-    console.log(allProducts);
+    //console.log(allProducts);
     let expired = allProducts.filter(function (va) {
         return checkProductValadity(va.orderedDate, va.warrantyPeriod.charAt(0)) <= 0;
         // return va.name == "FE 135mm F1.8 GM"
     });
-    console.log("expired====>", expired)
+    // console.log("expired====>", expired)
     return expired;
 
 }
 
 export const getExpiringSoonProducts = (allProducts) => {
-    console.log(allProducts);
+    // console.log(allProducts);
     let expiresoon = allProducts.filter(function (va) {
         var dif = checkProductValadity(va.orderedDate, va.warrantyPeriod.charAt(0));
 
@@ -30,7 +30,7 @@ export const getExpiringSoonProducts = (allProducts) => {
         return (dif > 0) && (dif < 120);
         // return va.name == "FE 135mm F1.8 GM"
     });
-    console.log("expiring soon====>", expiresoon)
+    // console.log("expiring soon====>", expiresoon)
     return expiresoon;
 }
 
@@ -57,15 +57,15 @@ export const getExpiringSoonProducts = (allProducts) => {
 
 
 export const checkProductValadity = (dop, wp) => {
-    console.log("currentDate", getCurrentdate());
+    // console.log("currentDate", getCurrentdate());
 
     var d = dop.toDate("dd/MM/yyyy", "/");
     var dww = addYearToCurrentDate(d, parseInt(wp)).toDate("dd/MM/yyyy", "/");
 
-    console.log(d.getFullYear());
-    console.log(dww.getFullYear());
+    // console.log(d.getFullYear());
+    // console.log(dww.getFullYear());
     var days = daysBetween(getCurrentdate().toDate("dd/MM/yyyy", "/"), dww);
-    console.log(days);
+    //  console.log(days);
     return days;
 
 }

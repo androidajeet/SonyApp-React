@@ -18,7 +18,6 @@ class ProductCatalog extends Component {
     }
     componentWillMount() {
         this.readData();
-        console.log(" in side componentWillMount");
     }
     readData() {
         axios
@@ -41,15 +40,14 @@ class ProductCatalog extends Component {
         } else {
             products.push(json);
         }
-
         return products;
     }
 
 
     onChangePage(event) {
         //update state with new page of items
-        console.log(this);
-        console.log(event.target.innerHTML);
+        // console.log(this);
+        // console.log(event.target.innerHTML);
         this.setState(
             { currentPageNumber: parseInt(event.target.innerHTML) }
         );
@@ -72,20 +70,18 @@ class ProductCatalog extends Component {
 
         return (
             <div>
+                <Paginator
+                    allProductList={this.state.allProductList}
+                    onClickPage={this.onChangePage}
+                    currentPageNumber={this.state.currentPageNumber}
+                    itemsPerPage={this.state.itemsPerPage} />
 
-                <div className="ProductCatelogControls">
-                    <Paginator
-                        allProductList={this.state.allProductList}
-                        onClickPage={this.onChangePage}
-                        currentPageNumber={this.state.currentPageNumber}
-                        itemsPerPage={this.state.itemsPerPage} />
+                <select style={styles} value={this.state.filter} onChange={this.filterHandler} >
+                    <option value="all">All</option>
+                    <option value="expiring_soon">Expiring Soon</option>
+                    <option value="expired">Expired</option>
+                </select>
 
-                    <select style={styles} value={this.state.filter} onChange={this.filterHandler} >
-                        <option value="all">All</option>
-                        <option value="expiring_soon">Expiring Soon</option>
-                        <option value="expired">Expired</option>
-                    </select>
-                </div>
                 <ProductList
                     itemsPerPage={this.state.itemsPerPage}
                     currentPageNumber={this.state.currentPageNumber}
