@@ -2,12 +2,7 @@ import React, { Component } from 'react';
 import './Pagination.css';
 import PaginationItem from './PaginationItem';
 
-//let items = [];
-
 class Paginator extends Component {
-
-
-
     constructor(props) {
         super(props);
         this.state = {
@@ -18,13 +13,6 @@ class Paginator extends Component {
         };
     }
 
-
-
-
-
-
-
-
     render() {
 
         var styles = {
@@ -32,19 +20,15 @@ class Paginator extends Component {
         };
 
         let totalPages = Math.ceil(this.props.allProductList.length / this.props.itemsPerPage);
-
         const pageItems = [];
         for (var i = 0; i < totalPages; i++) {
-            pageItems.push(<PaginationItem key={i}
-                onClick={ this.props.onClickPage}> {i + 1} </PaginationItem>);
+            pageItems.push(<PaginationItem key={i} pageNo={i + 1}> {i + 1} </PaginationItem>);
         }
 
         return (
             <nav style={styles} className="PaginationContainer" >
                 <ul id="id1" className="pagination justify-content-center">
-                <li className="page-item"><a style={styles} className="page-link" href="#id1" onClick={(event) => this.props.onClickPage(event)}>1</a></li>
-                    <li className="page-item"><a style={styles} className="page-link" href="#id1" onClick={(event) => this.props.onClickPage(event)} >2</a></li>
-                    <li className="page-item"><a style={styles} className="page-link" href="#id1" onClick={(event) => this.props.onClickPage(event)} >3</a></li>
+                    {pageItems}
                 </ul>
             </nav>
 
@@ -60,4 +44,9 @@ export default Paginator;
 {pageItems}
 <li className="page-item"><a style={styles} className="page-link" href="#id1" onClick={(event) => this.props.onClickPage(event)}>1</a></li>
                     <li className="page-item"><a style={styles} className="page-link" href="#id1" onClick={(event) => this.props.onClickPage(event)} >2</a></li>
-                    <li className="page-item"><a style={styles} className="page-link" href="#id1" onClick={(event) => this.props.onClickPage(event)} >3</a></li> */
+                    <li className="page-item"><a style={styles} className="page-link" href="#id1" onClick={(event) => this.props.onClickPage(event)} >3</a></li>
+
+                    <li className="page-item"><a style={styles} className="page-link" href="#id1" onClick={(event) => this.props.onClickPage(event)}>1</a></li>
+                    <li className="page-item"><a style={styles} className="page-link" href="#id1" onClick={(event) => this.props.onClickPage(event)} >2</a></li>
+                    <li className="page-item"><a style={styles} className="page-link" href="#id1" onClick={(event) => this.props.onClickPage(event)} >3</a></li>
+                    */

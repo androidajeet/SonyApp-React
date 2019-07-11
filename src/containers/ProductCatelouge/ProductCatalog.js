@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ProductList from '../../components/ProductList/ProductList';
 import Paginator from '../../components/Pagination/Pagination';
 import axios from '../../axios';
+import { connect } from "react-redux";
 
 class ProductCatalog extends Component {
 
@@ -14,7 +15,7 @@ class ProductCatalog extends Component {
             allProductList: []
         };
         //bind function in constructor instead of render (https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
-        this.onChangePage = this.onChangePage.bind(this);
+        // this.onChangePage = this.onChangePage.bind(this);
     }
     componentWillMount() {
         this.readData();
@@ -54,12 +55,12 @@ class ProductCatalog extends Component {
     }
 
 
-    filterHandler = (event) => {
-        let updatedFilter = event.target.value;
-        this.setState(
-            { filter: updatedFilter }
-        );
-    }
+    // filterHandler = (event) => {
+    //     let updatedFilter = event.target.value;
+    //     this.setState(
+    //         { filter: updatedFilter }
+    //     );
+    // }
 
 
     render() {
@@ -72,7 +73,7 @@ class ProductCatalog extends Component {
             <div>
                 <Paginator
                     allProductList={this.state.allProductList}
-                    onClickPage={this.onChangePage}
+
                     currentPageNumber={this.state.currentPageNumber}
                     itemsPerPage={this.state.itemsPerPage} />
 
@@ -84,7 +85,7 @@ class ProductCatalog extends Component {
 
                 <ProductList
                     itemsPerPage={this.state.itemsPerPage}
-                    currentPageNumber={this.state.currentPageNumber}
+                    currentPageNumber={this.props.pagination.currentPage}
                     allProductList={this.state.allProductList}
                     productFilter={this.state.filter} />
             </div>
@@ -92,4 +93,13 @@ class ProductCatalog extends Component {
 
     }
 }
-export default ProductCatalog;
+
+const mapStateToProps = (state) => {
+    return {
+        user: state.user,
+        math: state.math,
+        cart: state.cart,
+        pagination: state.pagination
+    };
+};
+export default connect(mapStateToProps, null)(ProductCatalog);

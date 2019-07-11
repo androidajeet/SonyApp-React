@@ -21,7 +21,7 @@ class ProductList extends Component {
 
     render() {
 
-        console.log(this.props.productFilter);
+        // console.log(this.props.productFilter);
         var styles = {
             marginBottom: "10px",
         };
