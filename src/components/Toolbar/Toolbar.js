@@ -1,6 +1,6 @@
 import React from 'react';
 import './Toolbar.css';
-import logo from '../../assets/logo.png';
+//import logo from '../../assets/logo.png';
 import Aux from '../../hoc/Auxiliary';
 import NavBar from '../NavBar/NavBar';
 import { Link } from "react-router-dom";
@@ -10,7 +10,7 @@ const toolbar = () => {
         <Aux>
             < div className="Toolbar" >
                 <Link to="/">
-                    <img className="Logo" src={logo} alt="sony logo"></img>
+                    <img className="Logo" src="assets/logo.png" alt="sony logo"></img>
                 </Link>
                 <NavBar />
             </div>

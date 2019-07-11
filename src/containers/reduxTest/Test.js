@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { User } from "./User";
 import { Main } from "./Main";
-import { setName } from "../actions/userActions";
+import { setName } from "../../actions/userActions";
 
 class Test extends React.Component {
 
