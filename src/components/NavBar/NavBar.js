@@ -16,10 +16,10 @@ class NavBar extends Component {
 
         return (
             <div className="Menu">
-                <nav className="navbar navbar-expand-lg navbar-light">
+                <nav className="navbar navbar-expand-sm navbar-light">
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mr-auto">
-                            <li id = "id3" className="nav-item">
+                            <li id="id3" className="nav-item">
                                 <a style={styles} className="nav-link" href="#id3" onClick={this.filterHandler}>Careers</a></li>
                             <li className="nav-item">
                                 <a style={styles} className="nav-link" href="#id3">Contact Us</a></li>
