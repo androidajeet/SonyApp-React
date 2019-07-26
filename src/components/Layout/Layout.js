@@ -18,12 +18,12 @@ const Layout = (props) => (
         <main className="Content">
             {props.children}
         </main>
-      
+
         <QuickLink>Quick Link</QuickLink>
         <hr className="hr"></hr>
         <Footer> footer</Footer>
     </Aux>
 
 );
-
+//last commit
 export default Layout;
